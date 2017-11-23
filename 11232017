@@ -135,6 +135,7 @@ public class Solution {
         // can't accomodate the real BIG number in a long
         //long[] longArray = new long[n];
         
+        // Use Big Integer
         BigInteger[] bigNumberArray = new BigInteger[n];
         
         for(int i = 0; i < n; i++) {
