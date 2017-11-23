@@ -152,4 +152,124 @@ public class Solution {
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
+4) PROBLEM: CLOSEST NUMBERS (https://www.hackerrank.com/challenges/closest-numbers/problem)
+
+SOLUTION:
+
+import java.io.*;
+import java.util.*;
+
+/**
+ * 
+ * @author Arthur Salla (asalla)
+ *
+ */
+
+public class Solution {
+    
+    public static void findClosestNumbers(int[] arr) {
+        
+        Map<String, Integer> map = new HashMap();
+        
+        for(int i = 0; i < arr.length; i++) {
+            for(int j = 0; j < arr.length; j++) {
+                if(i == j) {
+                    continue;
+                }
+                // Making sure that that same pairs are not inserted more than once
+                if(!map.containsKey(arr[j] + " " + arr[i])) {
+                    map.put(arr[i] + " " + arr[j], Math.abs(arr[i] - arr[j]));    
+                }
+            }
+        }
+        
+        int leastDiff = Collections.min(map.values());
+        StringBuilder sb = new StringBuilder();
+        
+/*      TODO - figure out how to display in certain cases
+        for(Map.Entry<String, Integer> entry : map.entrySet()) {
+            if(entry.getValue() == leastDiff) {
+            sb.append(entry.getKey());
+            }
+             //System.out.println(entry.getKey() + " | " + entry.getValue());            
+        }
+        
+
+
+        String output = sb.toString().replaceAll("\\s+","").trim();
+        String[] strArray = output.split("");
+        int[] intArray = new int[strArray.length];
+        
+        for(int k = 0; k < intArray.length; k++) {
+            intArray[k] = Integer.parseInt(strArray[k]);
+        }
+        
+        Arrays.sort(intArray);
+        
+        for(int k = 0; k < intArray.length; k++) {
+            System.out.println(intArray[k]);
+        }
+*/
+
+        for(Map.Entry<String, Integer> entry : map.entrySet()) {
+            if(entry.getValue() == leastDiff) {
+            System.out.print(entry.getKey());
+                
+            }            
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        scan.nextLine();
+        int[] arr = new int[n];
+        
+        for(int i = 0; i < n; i++) {
+            arr[i] = scan.nextInt();
+        }
+        
+       findClosestNumbers(arr);
+        
+    }
+}
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+5) PROBLEM: INTRO TO TUTORIAL (https://www.hackerrank.com/challenges/tutorial-intro/problem)
+
+SOLUTION:
+
+import java.io.*;
+import java.util.*;
+
+/**
+ * 
+ * @author Arthur Salla (asalla)
+ *
+ */
+
+public class Solution {
+    
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int k = scan.nextInt();
+        scan.nextLine();
+        int n = scan.nextInt();        
+        int[] arr = new int[n];
+        
+        for(int i = 0; i < n; i++) {
+            arr[i] = scan.nextInt();
+        }
+        
+        for(int i = 0; i < n; i++) {
+            if(arr[i] == k) {
+                System.out.print(i);
+                break;
+            }
+        }
+    }
+}
 
