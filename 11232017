@@ -1,0 +1,109 @@
+1) PROBLEM: GEMSTONES
+
+SOLUTION: 
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+/**
+ * 
+ * @author Arthur Salla (asalla)
+ *
+ */
+
+public class Solution {
+
+    static int gemstones(String[] arr) {
+        
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        int meter = 0;
+
+        for(int j = 97; j <=122; j++) {
+            int counter = 0;
+            char c = (char) j;
+            
+            for(int i = 0; i < arr.length; i++) {
+                if(arr[i].indexOf(c) != -1) {
+                    counter++;
+                }
+            }
+            list.add(counter);
+        }
+        
+        for (Integer i : list) {
+            if(i == arr.length) {
+               meter++;                
+            }
+        }
+            
+              return meter;  
+    }
+ 
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        String[] arr = new String[n];
+        for(int arr_i = 0; arr_i < n; arr_i++){
+            arr[arr_i] = in.next();
+        }
+        int result = gemstones(arr);
+        System.out.println(result);
+    }
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+2) PROBLEM : PAIRS (https://www.hackerrank.com/challenges/pairs/problem)
+
+SOLUTION:
+
+import java.io.*;
+import java.util.*;
+
+/**
+ * 
+ * @author Arthur Salla (asalla)
+ *
+ */
+
+public class Solution {
+    
+    public static int findPairs(int[] arr, int k) {
+        int result = 0;
+        
+        for(int i = 0; i < arr.length; i++) {
+            for(int j = 0; j < arr.length; j++) {
+                if(i == j) {
+                    continue;
+                }
+                if((arr[i] - arr[j]) == k) {
+                    result++;
+                }
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int k = scan.nextInt();
+        scan.nextLine();
+        int[] arr = new int[n];
+        for(int i = 0; i < n; i++) {
+           arr[i] = scan.nextInt();
+        }
+        int result = findPairs(arr, k);
+        System.out.println(result);
+
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
