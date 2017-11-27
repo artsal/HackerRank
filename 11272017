@@ -1,0 +1,84 @@
+1) PROBLEM: Password Cracker (https://www.hackerrank.com/challenges/password-cracker/problem)
+
+SOLUTION:
+
+import java.io.*;
+import java.util.*;
+
+/**
+*
+*   @author Arthur Salla (asalla)
+*
+*/
+
+public class Solution {
+    
+    public static void crackThePassword(int n, String[] array, String p) {
+        
+        TreeMap<Integer, String> map = new TreeMap<Integer, String>();
+        String temp = p;
+        String onlyPwd = "";
+        
+        for(int i = 0; i < n; i++) {
+            
+            //if(array[i].equals(p)) {
+            //    onlyPwd = array[i];
+            //    continue;
+            //}
+            
+           int index = p.indexOf(array[i]);
+	       while (index >= 0) {  // indexOf returns -1 if no match found
+               map.put(index, array[i]);
+               temp = temp.replace(array[i], "");
+               index = p.indexOf(array[i], index + 1);
+
+	       }
+        }
+        
+        if(temp.length() == 0) {
+            map.forEach((key, value) -> System.out.print(value + " "));
+        } else {
+            System.out.print("WRONG PASSWORD");
+        }
+        
+        /*if(temp.length() == 0) {
+            map.forEach((key, value) -> System.out.print(value + " "));
+        } else if(temp.length() != 0 && map.size() == 0) {
+            map.put(0, onlyPwd);
+            map.forEach((key, value) -> System.out.print(value + " "));
+        } else if(temp.length() != 0 && map.size() != 0) {
+            System.out.print("WRONG PASSWORD");
+        }*/
+        
+        //System.out.println("");
+        //System.out.println("p = " + p);
+        //System.out.println(map);
+        
+    }
+
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+        scanner.nextLine();
+        
+        for(int i = 0; i < t; i++) {
+            int n = scanner.nextInt();
+            scanner.nextLine();
+            String[] array = new String[n];
+            
+            for(int j =0; j < n; j++) {
+                String s = scanner.next();
+                array[j] = s;
+            }
+            
+            String p = scanner.next();        
+            crackThePassword(n, array, p);
+            System.out.println("");
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------
+
+2) 
