@@ -81,4 +81,44 @@ public class Solution {
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-2) PROBLEM: 
+2) PROBLEM: Mars Exploration (https://www.hackerrank.com/challenges/mars-exploration/problem)
+
+SOLUTION:
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+/**
+*
+* @author Arthur Salla (asalla)
+*
+*/
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String aSignal = in.next();
+        int sosCount = aSignal.length()/3;
+        StringBuilder eSignal = new StringBuilder();
+        for(int i = 0; i < sosCount; i++) {
+            eSignal.append("SOS");
+        }
+        
+        int counter = 0;
+        
+        for(int i = 0; i < aSignal.length(); i++) {
+            if(aSignal.charAt(i) != eSignal.charAt(i)) {
+                counter += 1;
+            }
+        }
+
+        System.out.println(counter);
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------
+
