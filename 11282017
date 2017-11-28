@@ -1,0 +1,44 @@
+
+1) PROBLEM: Alternating Characters (https://www.hackerrank.com/challenges/alternating-characters/problem)
+
+SOLUTION:
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+/**
+*
+* @author Arthur Salla (asalla)
+*
+*/
+
+public class Solution {
+
+    static int alternatingCharacters(String s) {
+        
+        int counter = 0;
+        
+        for(int i = 0; i < s.length() - 1; i++) {
+            if(s.charAt(i) == s.charAt(i+1)) {
+                counter += 1;
+            }
+        }
+        
+        return counter;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int q = in.nextInt();
+        for(int a0 = 0; a0 < q; a0++){
+            String s = in.next();
+            int result = alternatingCharacters(s);
+            System.out.println(result);
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------
